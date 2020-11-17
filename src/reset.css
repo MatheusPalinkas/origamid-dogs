@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  color: #333;
+  --type-fist: Helvetica, Arial, sans-serif;
+  --type-second: "Spectral", Georgia;
+  font-family: var(--type-fist);
+  padding-top: 4rem;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--type-fist);
+  color: #333;
+}
+
+button {
+  cursor: pointer;
+}
