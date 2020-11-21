@@ -29,9 +29,3 @@ export const InputUI = styled.input`
     box-shadow: 0 0 0 3px #fea;
   }
 `;
-
-export const Error = styled.p`
-  color: #f31;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-`;

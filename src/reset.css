@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@ body {
   height: 100vh;
   color: #333;
   --type-fist: Helvetica, Arial, sans-serif;
-  --type-second: "Spectral", Georgia;
+  --type-second: "Spectral", georgia;
   font-family: var(--type-fist);
   padding-top: 4rem;
 }
@@ -21,6 +23,7 @@ li {
 
 a {
   text-decoration: none;
+  color: #333;
 }
 
 img {

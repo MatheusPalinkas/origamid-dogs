@@ -1,47 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import FormLogar from "../../Components/Login/FormLogar";
+import Cadastro from "../../Components/Login/Cadastro";
 
 import useForm from "../../Hooks/useForm";
-import { email } from "../../utils/validacao";
-import { tokenPost } from "../../Services/token";
-import { userGet } from "../../Services/user";
+
+import { UserContext } from "../../Contexts/UserContext";
+
+import { Container, Title } from "../../styles";
 
 export default function LoginLogar() {
-  const username = useForm("", email);
+  const username = useForm("");
   const password = useForm("");
 
-  function getUser(token) {
-    userGet(token).then((res) => {
-      console.log(res);
-    });
-  }
+  const { userLogin, error, loading } = React.useContext(UserContext);
 
   function handleLogin(e) {
     e.preventDefault();
-    tokenPost({
-      username: username.value,
-      password: password.value,
-    }).then((jwt) => {
-      window.localStorage.setItem("token", jwt.token);
-      getUser(jwt.token);
-    });
+    if (username.validate() && password.validate())
+      userLogin(username.value, password.value);
   }
 
-  React.useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    if (token) getUser(token);
-  }, []);
-
   return (
-    <section>
-      <h1>Login</h1>
+    <Container>
+      <Title>Login</Title>
+      {error && <p>{error}</p>}
       <FormLogar
         handleSubmit={handleLogin}
         username={username}
         password={password}
+        loading={loading}
       />
-      <Link to="/login/criar">Cadastro</Link>
-    </section>
+      <Cadastro />
+    </Container>
   );
 }

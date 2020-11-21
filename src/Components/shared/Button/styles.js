@@ -20,6 +20,6 @@ export const ButtonUI = styled.button`
 
   &:disabled {
     cursor: wait;
-    opacity: 0.5rem;
+    opacity: 0.5;
   }
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Container, Label, InputUI, Error } from "./styles";
+import Error from "../Error";
+import { Container, Label, InputUI } from "./styles";
 
 function Input({ label, type, name, value, error, onChange, onBlur }) {
   return (
@@ -14,7 +15,7 @@ function Input({ label, type, name, value, error, onChange, onBlur }) {
         onChange={onChange}
         onBlur={onBlur}
       />
-      {error && <Error>{error}</Error>}
+      {error && <Error error={error} />}
     </Container>
   );
 }

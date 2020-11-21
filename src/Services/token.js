@@ -9,3 +9,12 @@ export const tokenPost = async (BODY) => {
     body: JSON.stringify(BODY),
   }).then((res) => res.json());
 };
+
+export const tokenPostValidate = async (token) => {
+  return fetch(`${BASE_URL}/jwt-auth/v1/token/validate`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => res.json());
+};
