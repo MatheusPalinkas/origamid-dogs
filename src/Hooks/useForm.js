@@ -5,7 +5,7 @@ function useForm(inicialValue = null, rules = false) {
   const [error, setError] = React.useState(null);
 
   function onChange({ target }) {
-    if (error) validate(target.value);
+    if (!!error) validate(target.value);
     setValue(target.value);
   }
 
@@ -15,15 +15,13 @@ function useForm(inicialValue = null, rules = false) {
     if (value.length <= 0) {
       setError("Campo deve ser preenchido");
       return false;
-    }
-
-    if (rules.regex && !rules.regex.test(value)) {
+    } else if (rules.regex && !rules.regex.test(value)) {
       setError(rules.message);
       return false;
+    } else {
+      setError("");
+      return true;
     }
-
-    setError(null);
-    return true;
   }
 
   return {

@@ -65,6 +65,8 @@ export function UserStorage({ children }) {
     const token = window.localStorage.getItem("token");
     if (token) {
       validateToken(token);
+    } else {
+      setLogin(false);
     }
   }, []);
 
