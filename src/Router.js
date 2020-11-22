@@ -22,8 +22,8 @@ export default function Router() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login/*" element={<Login />} />
-          <ProtectedRoute path="/conta/*" element={<Conta />} />
+          <Route path="login/*" element={<Login />} />
+          <ProtectedRoute path="conta/*" element={<Conta />} />
         </Routes>
         <Footer />
       </UserStorage>
