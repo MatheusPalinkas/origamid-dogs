@@ -3,6 +3,11 @@ export const email = {
   message: "Este email não é válido",
 };
 
+export const number = {
+  regex: /^\d+$/,
+  message: "O campo só aceita numeros",
+};
+
 export const obrigatorio = true;
 
 export const semValidacao = false;
