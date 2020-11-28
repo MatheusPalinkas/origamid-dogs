@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const animeLeft = keyframes`
   100%{
@@ -14,16 +14,20 @@ const animeLeft = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  max-width: 50rem;
-  width: 100%;
-  padding: 0 1rem;
-  margin: 0 auto;
+export const animetLeft = css`
   animation-name: ${animeLeft};
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
+`;
+
+export const Container = styled.div`
+  max-width: 50rem;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  ${animetLeft}
 `;
 
 export const Title = styled.h1`

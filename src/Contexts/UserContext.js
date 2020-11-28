@@ -14,52 +14,61 @@ export function UserStorage({ children }) {
 
   const navigate = useNavigate();
 
-  const validateToken = React.useCallback((token) => {
-    setLoading(true);
-    tokenPostValidate(token)
-      .then((res) => getUser(token))
-      .catch((error) => {
-        setError("Token inválido");
-        userLoagout();
-      })
-      .finally((fin) => setLoading(false));
-  }, []);
-
-  function getUser(token) {
-    userGet(token).then((res) => {
-      setData(res);
-      setLogin(true);
-      navigate("/conta");
-    });
-  }
-
-  function userLogin(username, password) {
-    setError(null);
-    setLoading(true);
-    tokenPost({
-      username,
-      password,
-    })
-      .then((jwt) => {
-        if (!jwt.token) throw new Error();
-        window.localStorage.setItem("token", jwt.token);
-        getUser(jwt.token);
-      })
-      .catch((error) => {
-        setError("Usuario invalido");
-        setLogin(false);
-      })
-      .finally(() => setLoading(false));
-  }
-
-  function userLoagout() {
+  const userLoagout = React.useCallback(() => {
     setData(null);
     setLogin(null);
     setError(null);
     setLoading(null);
     window.localStorage.removeItem("token");
     navigate("/login");
-  }
+  }, [navigate]);
+
+  const getUser = React.useCallback(
+    (token) => {
+      userGet(token).then((res) => {
+        setData(res);
+        setLogin(true);
+        navigate("/conta");
+      });
+    },
+    [navigate]
+  );
+
+  const validateToken = React.useCallback(
+    (token) => {
+      setLoading(true);
+      tokenPostValidate(token)
+        .then((res) => getUser(token))
+        .catch((error) => {
+          setError("Token inválido");
+          userLoagout();
+        })
+        .finally(() => setLoading(false));
+    },
+    [getUser, userLoagout]
+  );
+
+  const userLogin = React.useCallback(
+    (username, password) => {
+      setError(null);
+      setLoading(true);
+      tokenPost({
+        username,
+        password,
+      })
+        .then((jwt) => {
+          if (!jwt.token) throw new Error();
+          window.localStorage.setItem("token", jwt.token);
+          getUser(jwt.token);
+        })
+        .catch((error) => {
+          setError("Usuario invalido");
+          setLogin(false);
+        })
+        .finally(() => setLoading(false));
+    },
+    [getUser]
+  );
 
   React.useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -68,7 +77,7 @@ export function UserStorage({ children }) {
     } else {
       setLogin(false);
     }
-  }, []);
+  }, [validateToken]);
 
   return (
     <UserContext.Provider

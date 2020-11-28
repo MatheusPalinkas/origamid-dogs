@@ -6,7 +6,7 @@ function useMedia(media) {
   const changeMatch = React.useCallback(() => {
     const { matches } = window.matchMedia(media);
     setMatch(matches);
-  }, []);
+  }, [media]);
 
   React.useEffect(() => {
     window.addEventListener("resize", changeMatch);
@@ -14,7 +14,7 @@ function useMedia(media) {
     return () => {
       window.removeEventListener("resize", changeMatch);
     };
-  }, [media]);
+  }, [media, changeMatch]);
 
   return match;
 }

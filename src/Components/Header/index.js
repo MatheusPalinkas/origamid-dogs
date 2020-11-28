@@ -8,7 +8,7 @@ export default function Header() {
   const { data } = React.useContext(UserContext);
 
   return (
-    <HeaderUI>
+    <HeaderUI id="header-menu">
       <Nav>
         <Link to="/" aria-label="Home">
           <IconDogs />
