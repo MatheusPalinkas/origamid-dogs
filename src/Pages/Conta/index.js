@@ -9,6 +9,7 @@ import Stats from "./Stats";
 
 import { Container } from "../../styles";
 import { UserContext } from "../../Contexts/UserContext";
+import NotFound from "../NotFound";
 
 function Conta() {
   const { data } = React.useContext(UserContext);
@@ -19,6 +20,7 @@ function Conta() {
         <Route path="/" element={<Feed user={data.id} />} />
         <Route path="postar" element={<PostPhoto />} />
         <Route path="estatisticas" element={<Stats />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Container>
   );

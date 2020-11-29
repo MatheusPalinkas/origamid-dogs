@@ -13,6 +13,7 @@ import Photo from "./Pages/Photo";
 import Login from "./Pages/Login";
 import Conta from "./Pages/Conta";
 import Perfil from "./Pages/Perfil";
+import NotFound from "./Pages/NotFound";
 //#endregion
 
 import { UserStorage } from "./Contexts/UserContext";
@@ -28,6 +29,7 @@ export default function Router() {
           <ProtectedRoute path="conta/*" element={<Conta />} />
           <Route path="foto/:id" element={<Photo />} />
           <Route path="perfil/:user" element={<Perfil />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </UserStorage>

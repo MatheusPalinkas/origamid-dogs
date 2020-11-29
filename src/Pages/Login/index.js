@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
+import NotFound from "../NotFound";
+
 import LoginLogar from "./LoginLogar";
 import LoginCriar from "./LoginCriar";
 import LoginPerdeuSenha from "./LoginPerdeuSenha";
@@ -23,6 +25,7 @@ export default function Login() {
           <Route path="criar" element={<LoginCriar />} />
           <Route path="perdeu" element={<LoginPerdeuSenha />} />
           <Route path="resetar" element={<LoginResetarSenha />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </DivForms>
     </Container>
