@@ -8,10 +8,11 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 //#endregion
 
 //#region pages
-import Photo from "./Pages/Photo";
 import Home from "./Pages/Home";
+import Photo from "./Pages/Photo";
 import Login from "./Pages/Login";
 import Conta from "./Pages/Conta";
+import Perfil from "./Pages/Perfil";
 //#endregion
 
 import { UserStorage } from "./Contexts/UserContext";
@@ -26,6 +27,7 @@ export default function Router() {
           <Route path="login/*" element={<Login />} />
           <ProtectedRoute path="conta/*" element={<Conta />} />
           <Route path="foto/:id" element={<Photo />} />
+          <Route path="perfil/:user" element={<Perfil />} />
         </Routes>
         <Footer />
       </UserStorage>
