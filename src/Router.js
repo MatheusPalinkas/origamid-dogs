@@ -8,6 +8,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 //#endregion
 
 //#region pages
+import Photo from "./Pages/Photo";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Conta from "./Pages/Conta";
@@ -24,6 +25,7 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="login/*" element={<Login />} />
           <ProtectedRoute path="conta/*" element={<Conta />} />
+          <Route path="foto/:id" element={<Photo />} />
         </Routes>
         <Footer />
       </UserStorage>

@@ -14,6 +14,28 @@ const animeLeft = keyframes`
   }
 `;
 
+export const animateLatir = keyframes`  
+  0%{
+    opacity: 0;
+    transform scale(.4)
+  }
+  100%: {
+    opacity: initial;
+    transform: initial;
+  }
+`;
+
+export const animateEnter = keyframes`
+  0%{
+    opacity: 0;
+    transform scale(.8)
+  }
+  100%: {
+    opacity: initial;
+    transform: initial;
+  }
+`;
+
 export const animetLeft = css`
   animation-name: ${animeLeft};
   animation-duration: 0.5s;

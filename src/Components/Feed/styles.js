@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
+import Image from "../shared/Image";
+
 import visualizacao from "../../Assets/visualizacao.svg";
 
-import { animetLeft } from "../../styles";
+import { animateEnter } from "../../styles";
 
 export const Container = styled.div``;
 
 export const List = styled.ul`
-  ${animetLeft}
+  animation: ${animateEnter} 0.4s ease;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -42,7 +44,7 @@ export const Item = styled.li`
   }
 `;
 
-export const Photo = styled.img`
+export const Photo = styled(Image)`
   grid-area: 1/1;
 `;
 

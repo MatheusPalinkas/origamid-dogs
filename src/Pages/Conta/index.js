@@ -8,13 +8,15 @@ import PostPhoto from "./PostPhoto";
 import Stats from "./Stats";
 
 import { Container } from "../../styles";
+import { UserContext } from "../../Contexts/UserContext";
 
 function Conta() {
+  const { data } = React.useContext(UserContext);
   return (
-    <Container>
+    <Container style={{ animation: "none" }}>
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed />} />
+        <Route path="/" element={<Feed user={data.id} />} />
         <Route path="postar" element={<PostPhoto />} />
         <Route path="estatisticas" element={<Stats />} />
       </Routes>

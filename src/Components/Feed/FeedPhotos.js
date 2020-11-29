@@ -10,13 +10,20 @@ import FeedPhotoItem from "./FeedPhotoItem";
 
 import { List } from "./styles";
 
-function FeedPhotos({ setModalPhoto }) {
+function FeedPhotos({
+  setInfinite,
+  setModalPhoto,
+  page = 1,
+  total = 6,
+  user = 0,
+}) {
   const { data, loading, error, request } = useFetch();
 
   const getPhotos = React.useCallback(async () => {
-    const { url, options } = photosGet({ page: 1, total: 6, user: 0 });
+    const { url, options } = photosGet({ page, total, user });
     const { response, json } = await request(url, options);
-  }, [request]);
+    if (response && response.ok && json.length < total) setInfinite(false);
+  }, [request, setInfinite]);
 
   React.useEffect(() => {
     getPhotos();

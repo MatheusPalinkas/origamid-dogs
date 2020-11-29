@@ -20,8 +20,8 @@ export default function PostPhoto() {
 
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
-    e.preventDeafult();
+  async function handleSubmit(e) {
+    e.preventDefault();
 
     const formData = new FormData();
     formData.append("img", img.raw);
@@ -31,7 +31,7 @@ export default function PostPhoto() {
 
     const token = localStorage.getItem("token");
     const { url, options } = photoPost(token, formData);
-    request(url, options);
+    await request(url, options);
   }
 
   React.useEffect(() => {

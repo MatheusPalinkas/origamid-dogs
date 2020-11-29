@@ -30,8 +30,8 @@ function FormUploadPhoto({
     <>
       <Form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
-        <Input label="Peso" type="number" name="peso" {...idade} />
-        <Input label="Idade" type="number" name="idade" {...peso} />
+        <Input label="Peso" type="number" name="peso" {...peso} />
+        <Input label="Idade" type="number" name="idade" {...idade} />
         <InputFile id="img" handleChange={handleImgChange} />
 
         {loading ? (

@@ -4,10 +4,7 @@ export const photoPost = (token, formData) => ({
   url: `${BASE_URL}/api/photo`,
   options: {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
+    headers: { Authorization: `Bearer ${token}` },
     body: formData,
   },
 });
@@ -22,10 +19,6 @@ export const photosGet = ({ page, total, user }) => ({
 
 export const photoGet = (id) => ({
   url: `${BASE_URL}/api/photo/${id}`,
-  options: {
-    method: "GET",
-    cache: "no-store",
-  },
 });
 
 export const photoDelete = (id, token) => ({

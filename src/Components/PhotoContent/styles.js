@@ -1,27 +1,14 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import visualizacao from "../../Assets/visualizacao-black.svg";
 import { ReactComponent as Enviar } from "../../Assets/enviar.svg";
 
-const animateLatir = keyframes`  
-  0%{
-    opacity: 0;
-    transform scale(.4)
-  }
-  100%: {
-    opacity: initial;
-    transform: initial;
-  }
-`;
+import { animateEnter, animateLatir } from "../../styles";
+import Image from "../shared/Image";
 
-const animateEnter = keyframes`
-  0%{
-    opacity: 0;
-    transform scale(.8)
-  }
-  100%: {
-    opacity: initial;
-    transform: initial;
-  }
+export const Details = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-height: 36rem;
 `;
 
 export const Photo = styled.div`
@@ -30,7 +17,7 @@ export const Photo = styled.div`
   border-radius: 0.2rem;
   background: #fff;
   display: grid;
-  grid-template-columns: 36rem 20rem;
+
   grid-template-rows: 1fr;
   overflow: hidden;
   animation: ${animateEnter} 0.3s ease forwards;
@@ -43,6 +30,28 @@ export const Photo = styled.div`
     grid-template-columns: minmax(20rem, 40rem);
     grid-template-rows: auto auto auto;
   }
+
+  ${(props) =>
+    props.single
+      ? css`
+          height: auto;
+          overflow: visible;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+
+          img {
+            border-radius: 0.2rem;
+            overflow: hidden;
+          }
+
+          ${Details} > * {
+            padding: 0;
+            padding-top: 2rem;
+          }
+        `
+      : css`
+          grid-template-columns: 36rem 20rem;
+        `}
 `;
 
 export const DivImg = styled.div`
@@ -52,14 +61,9 @@ export const DivImg = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const ImageUI = styled(Image)`
   grid-row: 1/ 4;
-`;
-
-export const Details = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  max-height: 36rem;
+  min-width: 100%;
 `;
 
 export const DetailsAuthor = styled.div`

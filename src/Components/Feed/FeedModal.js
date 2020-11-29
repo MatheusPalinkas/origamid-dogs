@@ -30,7 +30,7 @@ function FeedModal({ photo, setModalPhoto }) {
     getPhoto(photo.id);
   }, [photo, getPhoto]);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const headerMenu = document.querySelector("#header-menu");
     headerMenu.style.zIndex = 0;
 
@@ -38,6 +38,7 @@ function FeedModal({ photo, setModalPhoto }) {
       headerMenu.style.zIndex = 100;
     };
   }, []);
+
   return (
     <Modal onClick={handleOutsideClick}>
       {error && <Error error={error} />}

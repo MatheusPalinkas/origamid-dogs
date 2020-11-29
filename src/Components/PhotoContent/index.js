@@ -9,20 +9,20 @@ import { Title } from "../../styles";
 import {
   Photo,
   DivImg,
-  Image,
+  ImageUI,
   Details,
   DetailsAuthor,
   Atributos,
   ItemAtributo,
 } from "./styles";
 
-function PhotoContent({ data }) {
+function PhotoContent({ data, single }) {
   const { photo, comments } = data;
 
   return (
-    <Photo>
+    <Photo single={single}>
       <DivImg>
-        <Image src={photo.src} alt={photo.title} />
+        <ImageUI src={photo.src} alt={photo.title} />
       </DivImg>
       <Details>
         <DetailsAuthor>
