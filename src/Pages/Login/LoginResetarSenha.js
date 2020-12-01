@@ -1,5 +1,24 @@
 import React from "react";
+import FormResetarSenha from "../../Components/Login/FormResetarSenha";
 
+import { Container, Title } from "../../styles";
 export default function LoginResetarSenha() {
-  return <div>Reseta</div>;
+  const [login, setLogin] = React.useState("");
+  const [key, setKey] = React.useState("");
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const paramsKey = params.get("key");
+    const paramsLogin = params.get("login");
+
+    if (paramsKey) setKey(paramsKey);
+    if (paramsLogin) setLogin(paramsLogin);
+  }, []);
+
+  return (
+    <Container>
+      <Title>Redefinir senha</Title>
+      <FormResetarSenha key={key} login={login} />
+    </Container>
+  );
 }

@@ -23,7 +23,7 @@ function FeedPhotos({
     const { url, options } = photosGet({ page, total, user });
     const { response, json } = await request(url, options);
     if (response && response.ok && json.length < total) setInfinite(false);
-  }, [request, setInfinite]);
+  }, [request, setInfinite, page, total, user]);
 
   React.useEffect(() => {
     getPhotos();

@@ -13,7 +13,7 @@ export default function PhotoActions({ photo }) {
   const navigate = useNavigate();
 
   async function handleDelete() {
-    const confirm = window.confirm("Tem certeza que deseja deletar?");
+    window.confirm("Tem certeza que deseja deletar?");
     const token = localStorage.getItem("token");
     const { url, options } = photoDelete(photo.id, token);
 
