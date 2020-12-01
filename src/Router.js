@@ -18,21 +18,27 @@ import NotFound from "./Pages/NotFound";
 
 import { UserStorage } from "./Contexts/UserContext";
 
+import { App, Body } from "./styles";
+
 export default function Router() {
   return (
-    <BrowserRouter>
-      <UserStorage>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="login/*" element={<Login />} />
-          <ProtectedRoute path="conta/*" element={<Conta />} />
-          <Route path="foto/:id" element={<Photo />} />
-          <Route path="perfil/:user" element={<Perfil />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </UserStorage>
-    </BrowserRouter>
+    <App>
+      <BrowserRouter>
+        <UserStorage>
+          <Header />
+          <Body>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="login/*" element={<Login />} />
+              <ProtectedRoute path="conta/*" element={<Conta />} />
+              <Route path="foto/:id" element={<Photo />} />
+              <Route path="perfil/:user" element={<Perfil />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Body>
+          <Footer />
+        </UserStorage>
+      </BrowserRouter>
+    </App>
   );
 }

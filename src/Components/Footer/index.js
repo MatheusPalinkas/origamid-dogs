@@ -1,6 +1,11 @@
 import React from "react";
 
-import {} from "./styles";
+import { FooterUI, Direitos, IconFooter } from "./styles";
 export default function Footer() {
-  return <div>Footer</div>;
+  return (
+    <FooterUI>
+      <IconFooter />
+      <Direitos>Dogs. Alguns direitos reservados</Direitos>
+    </FooterUI>
+  );
 }
