@@ -9,6 +9,7 @@ import Loading from "../../Components/shared/Loading";
 import PhotoContent from "../../Components/PhotoContent";
 
 import { Container } from "./styles";
+import Head from "../../Components/shared/Head";
 
 export default function Photo() {
   const { id } = useParams();
@@ -28,6 +29,7 @@ export default function Photo() {
   if (data)
     return (
       <Container>
+        <Head title={data.photo.title} />
         <PhotoContent data={data} single />
       </Container>
     );

@@ -8,6 +8,7 @@ import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../Contexts/UserContext";
 
 import { Container, Title } from "../../styles";
+import Head from "../../Components/shared/Head";
 
 export default function LoginLogar() {
   const username = useForm("");
@@ -23,6 +24,7 @@ export default function LoginLogar() {
 
   return (
     <Container>
+      <Head title="Login" />
       <Title>Login</Title>
       {error && <p>{error}</p>}
       <FormLogar

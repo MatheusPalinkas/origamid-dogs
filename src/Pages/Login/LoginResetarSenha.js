@@ -1,5 +1,6 @@
 import React from "react";
 import FormResetarSenha from "../../Components/Login/FormResetarSenha";
+import Head from "../../Components/shared/Head";
 
 import { Container, Title } from "../../styles";
 export default function LoginResetarSenha() {
@@ -17,6 +18,7 @@ export default function LoginResetarSenha() {
 
   return (
     <Container>
+      <Head title="Redefinir a senha" />
       <Title>Redefinir senha</Title>
       <FormResetarSenha key={key} login={login} />
     </Container>

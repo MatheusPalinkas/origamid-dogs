@@ -10,6 +10,7 @@ import { number, obrigatorio } from "../../utils/validacao";
 import FormUploadPhoto from "../../Components/Conta/FormUploadPhoto";
 
 import { Container } from "./styles";
+import Head from "../../Components/shared/Head";
 
 export default function PostPhoto() {
   const nome = useForm("", obrigatorio);
@@ -39,6 +40,7 @@ export default function PostPhoto() {
   }, [data, navigate]);
   return (
     <Container>
+      <Head title="Poste sua foto" />
       <FormUploadPhoto
         handleSubmit={handleSubmit}
         nome={nome}

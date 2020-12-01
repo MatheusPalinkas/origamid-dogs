@@ -8,6 +8,7 @@ import { userPost } from "../../Services/user";
 import { Container, Title } from "../../styles";
 import { UserContext } from "../../Contexts/UserContext";
 import useFetch from "../../Hooks/useFetch";
+import Head from "../../Components/shared/Head";
 
 export default function LoginCriar() {
   const username = useForm("", obrigatorio);
@@ -30,6 +31,7 @@ export default function LoginCriar() {
 
   return (
     <Container>
+      <Head title="Crie sua conta" />
       <Title>Cadastre-se</Title>
       <FormCadastro
         handleSubmit={handleSubmit}
