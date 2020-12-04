@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "../../shared/Button";
+import Error from "../../shared/Error";
 import Input from "../../shared/Input";
 
 import { Form, LinkPerdeu } from "./styles";
@@ -10,6 +11,7 @@ export default function FormLogar({
   username,
   password,
   loading,
+  error,
 }) {
   return (
     <>
@@ -21,6 +23,7 @@ export default function FormLogar({
         ) : (
           <Button>Entrar</Button>
         )}
+        <Error error={error && 'Dados incorretos'} />
       </Form>
       <LinkPerdeu to="/login/perdeu">Perdeu a senha?</LinkPerdeu>
     </>

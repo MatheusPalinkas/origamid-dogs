@@ -8,4 +8,8 @@ export const Container = styled(ContainerDad)`
   gap: 2rem;
   margin-bottom: 2rem;
   padding: 0;
+
+  @media (max-width: 40rem){
+    grid-template-columns: 1fr;
+  }
 `;

@@ -27,7 +27,7 @@ function FormCadastro({
       ) : (
         <Button>Cadastrar</Button>
       )}
-      <Error error={error} />
+      <Error error={error && 'Dados incorretos'} />
     </form>
   );
 }

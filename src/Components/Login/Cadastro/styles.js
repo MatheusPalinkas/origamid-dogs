@@ -3,6 +3,7 @@ import { ButtonUI } from "../../shared/Button/styles";
 
 export const Container = styled.div`
   margin-top: 4rem;
+  margin-bottom: 4rem;
 `;
 
 export const Text = styled.p`

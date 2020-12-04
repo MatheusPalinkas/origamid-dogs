@@ -26,12 +26,12 @@ export default function LoginLogar() {
     <Container>
       <Head title="Login" />
       <Title>Login</Title>
-      {error && <p>{error}</p>}
       <FormLogar
         handleSubmit={handleLogin}
         username={username}
         password={password}
         loading={loading}
+        error={error}
       />
       <Cadastro />
     </Container>
