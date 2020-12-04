@@ -42,3 +42,7 @@ input {
 button {
   cursor: pointer;
 }
+
+.VictoryContainer {
+  height: initial !important;
+}
